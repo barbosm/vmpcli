@@ -1,12 +1,11 @@
 # Create snapshots of all VMs in a vApp
 
-param([Parameter(Mandatory=$true)][string]$snapName)
+param([Parameter(Mandatory=$true)][string]$snapname)
 
-$desc = "Snapped on " + (Get-Date).ToString("yyy-MMM-d")
 $vAppName = "OSL"
-
-# Connect-VIServer -Server 10.10.61.103
+# $snapname = "clean_initial_lab"
 $vApp = Get-VApp -Name $vAppName
-$allVMs = Get-VM -Location $vApp
+$VMs = Get-VM -Location $vApp
+$desc = "Snapped on " + (Get-Date).ToString("yyy-MMM-d")
 
-New-Snapshot -Name $snapName -VM $allVMs -Description $desc
+New-Snapshot -Name $snapname -VM $VMs -Description $desc
