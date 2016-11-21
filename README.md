@@ -1,2 +1,2 @@
 # vmpcli
-VMware Power CLI scripts
+VMware PowerCLI scripts
